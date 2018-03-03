@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MVIP</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!--移动设备自适应-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+
+<!--导航栏-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">MVIP</a>
+</nav>
+
+
+<!--视频区-->
+<div class="embed-responsive embed-responsive-16by9" style="background: black">
+    <iframe id="play"
+            class="embed-responsive-item"
+            allowfullscreen></iframe>
+</div>
+
+
+<div style="margin: 16px">
+
+    <!--选择通道-->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">通道</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect01">
+            <option value="http://api.baiyug.cn/vip/index.php?url=">通道1（接口齐全）</option>
+            <option value="2">其他（正在添加）</option>
+        </select>
+    </div>
+
+    <!--输入网址-->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">网址</span>
+        </div>
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="onPlay()">解析</button>
+</div>
+
+<script type="text/javascript">
+    function onPlay(){
+        var inputGroupSelect01 = document.getElementById("inputGroupSelect01");
+        var select01=inputGroupSelect01.options[inputGroupSelect01.selectedIndex].value;
+        var basicUrl = document.getElementById("basic-url").value;
+        var oWin = document.getElementById("play");
+        if (basicUrl.length>0){
+            oWin.src=select01 + basicUrl;
+        }
+    }
+</script>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
